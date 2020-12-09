@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 
 const FirstWidget = styled.div`
   width: 100%;
-  height: 30rem;
   background-color: #4285f4;
   padding: 40px;
   color: white;
@@ -101,6 +100,30 @@ function HomeWidget() {
           deaths: data[0].deaths.value,
         },
       });
+      dispatch({
+        type: 'Indonesia',
+        payload: {
+          active: data[1].confirmed.value,
+          recovered: data[1].recovered.value,
+          deaths: data[1].deaths.value,
+        },
+      });
+      dispatch({
+        type: 'Japan',
+        payload: {
+          active: data[2].confirmed.value,
+          recovered: data[2].recovered.value,
+          deaths: data[2].deaths.value,
+        },
+      });
+      dispatch({
+        type: 'USA',
+        payload: {
+          active: data[3].confirmed.value,
+          recovered: data[3].recovered.value,
+          deaths: data[3].deaths.value,
+        },
+      });
     };
 
     fetch();
@@ -134,6 +157,49 @@ function HomeWidget() {
               <h1 style={{ fontSize: '4rem', margin: '2rem 0' }}>
                 {new Intl.NumberFormat().format(state.global.recovered)}
               </h1>
+            </div>
+          </div>
+          <div>
+            <div
+              style={{
+                display: 'flex',
+                marginBottom: '1rem',
+                justifyContent: 'space-between',
+                borderBottom: '1px solid #eee',
+              }}
+            >
+              <p>Countries</p>
+              <p>Active Cases</p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginBottom: '1rem',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p>Indonesia</p>
+              <p>{new Intl.NumberFormat().format(state.Indonesia.active)}</p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginBottom: '1rem',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p>Japan</p>
+              <p>{new Intl.NumberFormat().format(state.Japan.active)}</p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginBottom: '1rem',
+                justifyContent: 'space-between',
+              }}
+            >
+              <p>USA</p>
+              <p>{new Intl.NumberFormat().format(state.USA.active)}</p>
             </div>
           </div>
         </FirstWidget>
