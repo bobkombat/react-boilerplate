@@ -21,11 +21,9 @@ const GlobalStyle = createGlobalStyle`
     min-width: 100%;
   }
 
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
-  }
+  p {
+    margin: 0;
+    font-size: 1.25rem;
 `;
 
 export default GlobalStyle;
