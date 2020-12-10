@@ -13,9 +13,8 @@ import HomeWidget from './HomeWidget';
 const Wrapper = styled.div`
   width: auto;
   background-color: #fafafa;
-  height: 500px;
-  padding: 0 40px;
-  margin: 3rem 0 2rem 0;
+  padding: 0 40px 20px 40px;
+  margin: 3rem 0 0 0;
 `;
 
 export default function HomePage() {

@@ -24,6 +24,12 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
     font-size: 1.25rem;
+  }
+    @media (max-width: 768px) {
+      p {
+        font-size: 1rem;
+      }
+    }
 `;
 
 export default GlobalStyle;

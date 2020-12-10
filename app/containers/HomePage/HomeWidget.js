@@ -1,12 +1,16 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import H1 from 'components/H1';
+import FontHeader from 'components/FontHeader';
+import SubWrapper from 'components/SubWrapper';
+import SecondWidget from 'components/SecondWidget';
 import { fetchData } from './utils';
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 1.25rem 0;
+  flex-wrap: wrap;
 `;
 
 const FirstWidget = styled.div`
@@ -142,21 +146,21 @@ function HomeWidget() {
           >
             <div>
               <p>Active Coronavirus cases right now</p>
-              <h1 style={{ fontSize: '4rem', margin: '2rem 0' }}>
+              <FontHeader>
                 {new Intl.NumberFormat().format(state.global.active)}
-              </h1>
+              </FontHeader>
             </div>
             <div>
               <p>Total deaths of Coronavirus cases.</p>
-              <h1 style={{ fontSize: '4rem', margin: '2rem 0' }}>
+              <FontHeader>
                 {new Intl.NumberFormat().format(state.global.deaths)}
-              </h1>
+              </FontHeader>
             </div>
             <div>
               <p>Recovered cases of Coronavirus.</p>
-              <h1 style={{ fontSize: '4rem', margin: '2rem 0' }}>
+              <FontHeader>
                 {new Intl.NumberFormat().format(state.global.recovered)}
-              </h1>
+              </FontHeader>
             </div>
           </div>
           <div>
@@ -203,6 +207,106 @@ function HomeWidget() {
             </div>
           </div>
         </FirstWidget>
+      </Wrapper>
+      <Wrapper>
+        <SubWrapper>
+          <H1>Countries death toll</H1>
+          <SecondWidget>
+            <div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                  borderBottom: '1px solid #eee',
+                }}
+              >
+                <p>Countries</p>
+                <p>Total Deaths</p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>Indonesia</p>
+                <p>{new Intl.NumberFormat().format(state.Indonesia.deaths)}</p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>Japan</p>
+                <p>{new Intl.NumberFormat().format(state.Japan.deaths)}</p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>USA</p>
+                <p>{new Intl.NumberFormat().format(state.USA.deaths)}</p>
+              </div>
+            </div>
+          </SecondWidget>
+        </SubWrapper>
+        <SubWrapper>
+          <H1>Countries recovered case</H1>
+          <SecondWidget>
+            <div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                  borderBottom: '1px solid #eee',
+                }}
+              >
+                <p>Countries</p>
+                <p>Total Recovered</p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>Indonesia</p>
+                <p>
+                  {new Intl.NumberFormat().format(state.Indonesia.recovered)}
+                </p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>Japan</p>
+                <p>{new Intl.NumberFormat().format(state.Japan.recovered)}</p>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  marginBottom: '1rem',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p>USA</p>
+                <p>{new Intl.NumberFormat().format(state.USA.recovered)}</p>
+              </div>
+            </div>{' '}
+          </SecondWidget>
+        </SubWrapper>
       </Wrapper>
     </section>
   );
